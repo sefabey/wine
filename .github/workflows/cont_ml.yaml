@@ -13,3 +13,4 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train_model.py
+          cat "metrics.txt"
