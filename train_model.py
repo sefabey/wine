@@ -19,7 +19,6 @@ model1= RandomForestRegressor(max_depth=3, random_state=seed)
 model1.fit(X_train, y_train)
 
 train_score_rf= model1.score(X_train, y_train)*100
-
 test_score_rf= model1.score(X_test, y_test)*100
 
 with open("metrics.txt", "w") as outfile:
@@ -28,12 +27,10 @@ with open("metrics.txt", "w") as outfile:
 
 model2= KernelRidge(alpha=1)
 model2.fit(X_train, y_train)
-train_score_kr= model2.score(X_train, y_train)
-test_score_kr= model2.score (X_test, y_test)
+train_score_kr= model2.score(X_train, y_train)*100
+test_score_kr= model2.score (X_test, y_test)*100
 
+with open("metrics.txt", "a") as outfile:
+    outfile.write("Kernel Ridge Training variance explained: %2.1f%% \n" %train_score_kr) 
+    outfile.write("Kernel Ridge Test variance explained: %2.1f%% \n" %test_score_kr)
 
-with open("metrics.txt", "w") as outfile:
-    outfile.write("Kernel Ridge Training variance explained: %2.1f%% \n" % train_score_kr) 
-    outfile.write("Kernel Ridge Test variance explained: %2.1f%% \n" % test_score_kr)
-
-    
