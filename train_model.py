@@ -34,3 +34,28 @@ with open("metrics.txt", "a") as outfile:
     outfile.write("Kernel Ridge Training variance explained: %2.1f%% \n" %train_score_kr) 
     outfile.write("Kernel Ridge Test variance explained: %2.1f%% \n" %test_score_kr)
 
+# Feature Importance Plots =======
+
+importance_rf = model1.feature_importances_
+importance_rf
+labels= df.columns
+
+feature_df_rf =pd.DataFrame(list(zip( labels,importance_rf)), columns= ["feature", "importance"])
+feature_df_rf= feature_df.sort_values(by= "importance", ascending= False)
+feature_df_rf
+
+
+# image formatting
+axis_fs = 18 #fontsize
+title_fs = 22 #fontsize
+sns.set(style="whitegrid")
+
+ax= sns.barplot(x= "importance",y="feature", data= feature_df_rf)
+ax.set_xlabel("Importance")
+ax.set_ylabel("Feature")
+ax.set_title("Feature Importance for Random Forest")
+
+
+plt.tight_layout()
+plt.savefig("feature_importance_rf.png",dpi=120) 
+plt.close()
