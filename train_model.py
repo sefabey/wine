@@ -41,7 +41,7 @@ importance_rf
 labels= df.columns
 
 feature_df_rf =pd.DataFrame(list(zip( labels,importance_rf)), columns= ["feature", "importance"])
-feature_df_rf= feature_df.sort_values(by= "importance", ascending= False)
+feature_df_rf= feature_df_rf.sort_values(by= "importance", ascending= False)
 feature_df_rf
 
 

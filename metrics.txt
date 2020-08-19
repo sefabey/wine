@@ -1,4 +1,0 @@
-Random Forest Training variance explained: 42.2% 
-Random Forest Test variance explained: 33.5% 
-Kernel Ridge Training variance explained: 36.4% 
-Kernel Ridge Test variance explained: 29.9% 
